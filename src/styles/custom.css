@@ -1,0 +1,210 @@
+/* Estilos customizados para Papo de Calouro */
+
+/* Esconder scrollbar mas manter funcionalidade */
+body {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 255, 136, 0.3) rgba(10, 22, 40, 0.3);
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgba(10, 22, 40, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 136, 0.3);
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 136, 0.5);
+}
+
+/* Cursor customizado */
+* {
+  cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10' fill='%2300ff88' opacity='0.3'/%3E%3Ccircle cx='12' cy='12' r='3' fill='%2300ff88'/%3E%3C/svg%3E") 12 12, auto;
+}
+
+button,
+a {
+  cursor: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23ff006e' opacity='0.3'/%3E%3Ccircle cx='12' cy='12' r='3' fill='%23ff006e'/%3E%3C/svg%3E") 12 12, pointer;
+}
+
+/* Animação de fade in smooth */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Efeito de papel rasgado */
+.torn-edge {
+  position: relative;
+}
+
+.torn-edge::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: linear-gradient(45deg, transparent 33.333%, currentColor 33.333%, currentColor 66.667%, transparent 66.667%),
+              linear-gradient(-45deg, transparent 33.333%, currentColor 33.333%, currentColor 66.667%, transparent 66.667%);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 0;
+}
+
+/* Efeito de destaque/marca-texto */
+.highlight {
+  background: linear-gradient(to right, transparent, rgba(0, 255, 136, 0.3), transparent);
+  padding: 0 4px;
+}
+
+/* Sombra de papel */
+.paper-shadow {
+  box-shadow: 
+    2px 2px 0 rgba(0, 0, 0, 0.1),
+    4px 4px 0 rgba(0, 0, 0, 0.08),
+    6px 6px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* Efeito de hover para cards */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) rotate(0deg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Animação de pulse suave */
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+/* Efeito de vibração para post-its */
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(2deg);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+}
+
+.wiggle-hover:hover {
+  animation: wiggle 0.5s ease-in-out 2;
+}
+
+/* Texto com efeito de escrita à mão */
+.handwritten {
+  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Bradley Hand', cursive;
+  letter-spacing: 0.05em;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Seleção de texto customizada */
+::selection {
+  background-color: rgba(0, 255, 136, 0.3);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: rgba(0, 255, 136, 0.3);
+  color: white;
+}
+
+/* Elementos colados com fita */
+.taped {
+  position: relative;
+}
+
+.taped::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 24px;
+  background: rgba(255, 190, 11, 0.6);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Borda desenhada à mão */
+.hand-drawn-border {
+  border: 3px solid currentColor;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+/* Animação de desenho */
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.draw-animation {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 2s ease-out forwards;
+}
+
+/* Grid de papel quadriculado */
+.grid-paper {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Efeito de parallax suave */
+.parallax {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Loading animation para imagens */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.image-loading {
+  background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
