@@ -1,6 +1,13 @@
 import { motion } from "motion/react";
 
 export function Footer() {
+  const navigationLinks = [
+    { label: "Sobre", href: "#sobre" },
+    { label: "Instagram", href: "#momentos" },
+    { label: "Contato", href: "https://www.instagram.com/papodecalourocast/", external: true },
+    { label: "Spotify", href: "https://open.spotify.com/show/6E9kIdG8pRufmzQ9gpitiB?si=b01f09e28453403e", external: true }
+  ];
+
   const socialLinks = [
     { 
       name: "Instagram", 
@@ -43,10 +50,17 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-4 uppercase tracking-wider">Navegação</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-[#00ff88] transition-colors">Sobre</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-[#00ff88] transition-colors">Episódios</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-[#00ff88] transition-colors">Contato</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-[#00ff88] transition-colors">Patrocínio</a></li>
+              {navigationLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className="text-gray-400 hover:text-[#00ff88] transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -74,13 +88,11 @@ export function Footer() {
         {/* Bottom */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-gray-500 text-sm">
-            © 2024 Papo de Calouro. Todos os direitos reservados.
+            © {new Date().getFullYear()} Papo de Calouro. Todos os direitos reservados.
           </p>
-          <div className="flex gap-6 text-sm">
-            <a href="#" className="text-gray-500 hover:text-white transition-colors">Privacidade</a>
-            <a href="#" className="text-gray-500 hover:text-white transition-colors">Termos</a>
-            <a href="#" className="text-gray-500 hover:text-white transition-colors">Cookies</a>
-          </div>
+          <p className="text-center text-sm text-gray-500">
+            Políticas e termos podem ser adicionados quando o projeto tiver páginas dedicadas.
+          </p>
         </div>
       </div>
     </footer>

@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
-import logo from "figma:asset/3268e546acc8a2399a98cf57c103e7fa3b15e70b.png";
+import logo from "@/assets/3268e546acc8a2399a98cf57c103e7fa3b15e70b.png";
 
 export function FloatingNav() {
   const [scrolled, setScrolled] = useState(false);
